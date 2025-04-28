@@ -1,12 +1,22 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Task} from '../task.module';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-task',
-  imports: [],
+  imports: [
+    DatePipe
+  ],
   templateUrl: './task.component.html',
   styleUrl: './task.component.css',
   standalone: true
 })
 export class TaskComponent {
+  @Input({required:true}) task!: Task;
+  @Output() complete = new EventEmitter<string>();
+
+  onCompleteTasK(){
+    this.complete.emit(this.task.id);
+  }
 
 }
