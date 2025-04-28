@@ -2,6 +2,7 @@ import {Component, Input} from '@angular/core';
 import {TaskComponent} from './task/task.component';
 import {DUMMY_TASKS, Task} from './task.module';
 import {NewTaskComponent} from './new-task/new-task.component';
+import {TaskService} from './task.service';
 
 @Component({
   selector: 'app-tasks',
@@ -17,14 +18,14 @@ export class TasksComponent {
   @Input({required: true}) name?:string;
   @Input() isAddingNewTask:boolean = false;
   tasks = DUMMY_TASKS;
-
+  constructor(private taskService: TaskService) {
+  }
   get  selectedUserTasks(){
-    return this.tasks.filter((task) => this.userId === task.userId);
+    return this.taskService.getUserTasks(this.userId);
   }
 
   onCompleteTask(id: string){
-    console.log(id);
-    this.tasks = this.tasks.filter((task) => task.id !==id);
+    this.taskService.removeTask(id);
   }
 
   onStartAddTask(){
@@ -39,7 +40,7 @@ export class TasksComponent {
   onAddTask(task: Task){
     task.id = new Date().getTime().toString();
     task.userId = this.userId;
-    this.tasks.unshift(task);
+    this.taskService.addTask(task);
     this.isAddingNewTask =false;
   }
 

@@ -26,7 +26,6 @@ export class NewTaskComponent {
     this.cancel.emit();
   }
   onSubmit(){
-
     this.add.emit({
       id: '',
       userId: '',
