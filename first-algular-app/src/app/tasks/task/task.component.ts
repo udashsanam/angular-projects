@@ -16,8 +16,13 @@ export class TaskComponent {
   @Input({required:true}) task!: Task;
   @Output() complete = new EventEmitter<string>();
 
+  constructor(private taskService: TaskService) {
+
+  }
+
+
   onCompleteTasK(){
-    this.complete.emit(this.task.id);
+    this.taskService.removeTask(this.task.id);
   }
 
 }

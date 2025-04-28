@@ -24,15 +24,13 @@ export class TasksComponent {
     return this.taskService.getUserTasks(this.userId);
   }
 
-  onCompleteTask(id: string){
-    this.taskService.removeTask(id);
-  }
+
 
   onStartAddTask(){
     this.isAddingNewTask=this.isAddingNewTask?false:true;
   }
 
-  onCancelAddTask(){
+  onCloseAddTask(){
     this.isAddingNewTask = false;
     console.log("cancel")
   }
