@@ -1,19 +1,11 @@
 import {Component, EventEmitter, inject, Input, Output, signal} from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import {User} from '../../user/user.model';
-import {UserComponent} from '../../user/user.component';
-import {Task} from '../task.module';
 import {TaskService} from '../task.service';
-import {requiresLinking} from '@angular-devkit/build-angular/src/tools/babel/presets/application';
 
 @Component({
   selector: 'app-new-task',
-  imports: [
-    FormsModule
-  ],
   templateUrl: './new-task.component.html',
   styleUrl: './new-task.component.css',
-  standalone:true
+  standalone:false
 })
 export class NewTaskComponent {
 

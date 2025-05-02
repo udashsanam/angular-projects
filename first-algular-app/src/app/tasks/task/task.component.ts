@@ -5,12 +5,9 @@ import {TaskService} from '../task.service';
 
 @Component({
   selector: 'app-task',
-  imports: [
-    DatePipe
-  ],
   templateUrl: './task.component.html',
   styleUrl: './task.component.css',
-  standalone: true
+  standalone: false
 })
 export class TaskComponent {
   @Input({required:true}) task!: Task;
