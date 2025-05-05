@@ -2,23 +2,27 @@
 // e.g., integrate it into a service or component
 // You may need to tweak it, depending on where and how you use it
 
-function calculateInvestmentResults() {
-  const annualData = [];
-  let investmentValue = initialInvestment;
+import {AnnaulData} from "./app/model/AnnaulData";
 
-  for (let i = 0; i < duration; i++) {
+ function calculateInvestmentResults(data: {initialInvestment: number ,
+                                    annualInvestment: number , expectedReturn: number ,
+                                    duration: number} ) {
+  const annualData:AnnaulData[] = [];
+  let investmentValue = data.initialInvestment;
+
+  for (let i = 0; i < data.duration; i++) {
     const year = i + 1;
-    const interestEarnedInYear = investmentValue * (expectedReturn / 100);
-    investmentValue += interestEarnedInYear + annualInvestment;
+    const interestEarnedInYear = investmentValue * (data.expectedReturn / 100);
+    investmentValue += interestEarnedInYear + data.annualInvestment;
     const totalInterest =
-      investmentValue - annualInvestment * year - initialInvestment;
+      investmentValue - data.annualInvestment * year - data.initialInvestment;
     annualData.push({
       year: year,
       interest: interestEarnedInYear,
       valueEndOfYear: investmentValue,
-      annualInvestment: annualInvestment,
+      annualInvestment: data.annualInvestment,
       totalInterest: totalInterest,
-      totalAmountInvested: initialInvestment + annualInvestment * year,
+      totalAmountInvested: data.initialInvestment + data.annualInvestment * year,
     });
   }
 
