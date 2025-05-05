@@ -1,10 +1,10 @@
 import {AnnaulData, UserInputData} from "../model/AnnaulData";
-import {Injectable} from "@angular/core";
+import {Injectable, signal} from "@angular/core";
 
 @Injectable({providedIn: 'root'})
 export class InvestmentService {
 
-  data: AnnaulData[] = [];
+  datas = signal<AnnaulData[]>([]);
 
   calculateInvestmentResults(data: UserInputData ) {
     const annualData:AnnaulData[] = [];
@@ -26,7 +26,8 @@ export class InvestmentService {
       });
     }
 
-    this.data = annualData;
+    // this.data = annualData;
+    this.datas.set(annualData);
 
   }
 }
