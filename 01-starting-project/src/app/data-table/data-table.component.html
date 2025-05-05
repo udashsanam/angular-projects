@@ -16,10 +16,10 @@
 @for(row of tableData; track row.year){
   <tr>
     <td>{{row.year}}</td>
-    <td>{{row.annualInvestment}}</td>
-    <td>{{row.interest}}</td>
-    <td>{{row.totalInterest}}</td>
-    <td>{{row.totalAmountInvested}}</td>
+    <td>{{row.annualInvestment | currency }}</td>
+    <td>{{row.interest | currency}}</td>
+    <td>{{row.totalInterest | currency}}</td>
+    <td>{{row.totalAmountInvested | currency}}</td>
   </tr>
 }
 </tbody>
