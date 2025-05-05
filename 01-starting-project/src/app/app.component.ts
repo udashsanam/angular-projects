@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, signal} from '@angular/core';
 import {HeaderComponent} from "./header/header.component";
 import {UserInputComponent} from "./user-input/user-input.component";
 import {DataTableComponent} from "./data-table/data-table.component";
@@ -17,7 +17,7 @@ import {AnnaulData, UserInputData} from "./model/AnnaulData";
 export class AppComponent {
 
   @Input() userInputData!: UserInputData;
-  investmentResults: AnnaulData[] = [];
+  investmentResults = signal<AnnaulData[]>([]);
 
    calculateInvestmentResults(data: UserInputData ) {
     const annualData:AnnaulData[] = [];
@@ -43,7 +43,7 @@ export class AppComponent {
   }
 
   onInput(inputData: UserInputData) {
-     this.investmentResults = this.calculateInvestmentResults(inputData);
+     this.investmentResults.set(this.calculateInvestmentResults(inputData))
      console.log(this.investmentResults);
   }
 }

@@ -1,4 +1,4 @@
-@if (tableData.length ==0)
+@if (tableData()?.length ==0)
 {<p class="center"> Please enter some values and press Calculate</p>}
 @else {
 
@@ -10,16 +10,18 @@
 <th> Interest (Year)</th>
 <th> Total Interest</th>
 <th>Invested Capital</th>
+  <th>Total Amount Received</th>
 </tr>
 </thead>
 <tbody>
-@for(row of tableData; track row.year){
+@for(row of tableData(); track row.year){
   <tr>
     <td>{{row.year}}</td>
     <td>{{row.annualInvestment | currency }}</td>
     <td>{{row.interest | currency}}</td>
     <td>{{row.totalInterest | currency}}</td>
     <td>{{row.totalAmountInvested | currency}}</td>
+    <td>{{row.totalAmountInvested + row.totalInterest | currency}}</td>
   </tr>
 }
 </tbody>

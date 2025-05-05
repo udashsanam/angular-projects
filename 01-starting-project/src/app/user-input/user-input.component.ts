@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output, signal} from '@angular/core';
+import {Component, EventEmitter, output, Output, signal} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {UserInputData} from "../model/AnnaulData";
 
@@ -17,7 +17,7 @@ export class UserInputComponent {
    enteredAnnualInvestment:number = 0;
    enteredExpectedReturn = signal(5);
    enteredDuration = signal(10);
-   @Output() input  = new EventEmitter<UserInputData>();
+    input  = output<UserInputData>();
 
 
   onSubmit() {
@@ -28,5 +28,9 @@ export class UserInputComponent {
       expectedReturn:this.enteredExpectedReturn(),
       duration:this.enteredDuration()
     });
+    this.enteredInitialInvestment = 0;
+    this.enteredAnnualInvestment = 0;
+    this.enteredExpectedReturn.set(5);
+    this.enteredDuration.set(10);
   }
 }

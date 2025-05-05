@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, input, Input} from '@angular/core';
 import {AnnaulData} from "../model/AnnaulData";
 import {CurrencyPipe} from "@angular/common";
 
@@ -13,6 +13,6 @@ import {CurrencyPipe} from "@angular/common";
 })
 export class DataTableComponent {
 
-  @Input({required:true}) tableData: AnnaulData[] = [];
+   tableData = input<AnnaulData[]>();
 
 }
