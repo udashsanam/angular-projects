@@ -2,8 +2,17 @@
 
 <main>
   <div id="dashboard">
-    <app-server-status />
-    <app-traffic />
-    <app-support-tickets />
+    <app-dashboard-item title="Server Status" [image]="{ src: 'status.png', alt: 'Server Status'}">
+      <app-server-status />
+    </app-dashboard-item>
+
+    <app-dashboard-item title="Traffic" [image]="{ src: 'globe.png', alt: 'Traffic'}">
+      <app-traffic />
+    </app-dashboard-item>
+
+    <app-dashboard-item title="Support Tickets" [image]="{ src: 'list.png', alt: 'Support Tickets'}">
+      <app-support-tickets />
+    </app-dashboard-item>
+
   </div>
 </main>
