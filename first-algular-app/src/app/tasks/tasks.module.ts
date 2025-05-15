@@ -7,7 +7,7 @@ import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [TasksComponent, TaskComponent, NewTaskComponent],
-  exports: [TasksComponent],
+    exports: [TasksComponent, NewTaskComponent],
   imports: [DatePipe, FormsModule],
 })
 export class TasksModule {
