@@ -5,8 +5,7 @@ import {Component, Input, ViewEncapsulation} from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './control.component.html',
-  styleUrl: './control.component.css',
-  encapsulation: ViewEncapsulation.None
+  styleUrl: './control.component.css'
 })
 export class ControlComponent {
   @Input() label!: string;
