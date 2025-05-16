@@ -16,4 +16,10 @@ import {ControlComponent} from "../../../shared/control/control.component";
 })
 export class NewTicketsComponent {
 
+  onSubmit(title:string, request:string) {
+    console.log('Submitted');
+    console.log(title);
+    console.log(request);
+  }
+
 }
