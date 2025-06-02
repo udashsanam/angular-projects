@@ -1,0 +1,20 @@
+<form (ngSubmit)="onSubmit()" #form>
+  <app-control label="Title">
+    <input name="title" type="text" id="title" #input [(ngModel)]="enteredTitle" />
+  </app-control>
+
+  <app-control label="Request">
+    <textarea name="request" id="request" rows="3"  #input [(ngModel)]="enteredRequest"></textarea>
+  </app-control>
+
+  <p>
+
+    <button appButton>
+
+      Submit
+      <span class='.logo'>
+    ⇧
+    </span>
+    </button>
+  </p>
+</form>
