@@ -22,17 +22,17 @@ private form = viewChild.required<ElementRef<HTMLFormElement>>('form');
 
   // @Output() add = new EventEmitter();
   add = output<{title:string; text: string}>();
-  onSubmit(title:string, request:string) {
-    console.log('Submitted');
-    console.log(title);
-    console.log(request);
-    this.form().nativeElement.reset();
+
+  enteredTitle = '';
+   enteredRequest = '';
+  onSubmit() {
     console.log(this.controls);
     this.add.emit({
-      title:title,
-      text:request
+      title:this.enteredTitle,
+      text:this.enteredRequest
     });
-    this.form()?.nativeElement.reset();
+    this.enteredTitle = '';
+    this.enteredRequest = '';
   }
 
 }

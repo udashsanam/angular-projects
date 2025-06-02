@@ -21,6 +21,18 @@ export class SupportTicketsComponent {
       id:Math.random().toString(),
       status: 'open'
     }
+    console.log(ticket);
     this.tickets.push(ticket);
+  }
+
+  conCloseTicket(id: string) {
+    this.tickets = this.tickets.map((ticket) => {
+      if(ticket.id === id) {
+        // returning all the previous value but change one parameter status with closed
+        // javascript value
+        return {...ticket, status: 'closed'};
+      }
+      return ticket;
+    });
   }
 }
