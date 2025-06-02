@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, model, Output} from '@angular/core';
 
 @Component({
   selector: 'app-rect',
@@ -12,10 +12,11 @@ export class RectComponent {
   // input should hav size and output should have sizeSize i.e <inputname> and <inputname>Change
   // use as this way
   //<app-rect [(size)]="rectSize" />
-  @Input({required:true}) size !: {width: string, height: string};
-  @Output() sizeChange = new EventEmitter<{width: string, height: string}>();
+  // @Input({required:true}) size !: {width: string, height: string};
+  // @Output() sizeChange = new EventEmitter<{width: string, height: string}>();
+  size = model.required<{width: string, height: string}>();
 
   onReset() {
-    this.sizeChange.emit({width: '100', height: '100'});
+    this.size.set({width: '100', height: '100'});
   }
 }
