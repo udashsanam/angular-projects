@@ -1,4 +1,4 @@
-import {Component, ElementRef, viewChild, ViewChild, ViewChildren} from '@angular/core';
+import {Component, ElementRef, EventEmitter, output, Output, viewChild, ViewChild, ViewChildren} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {ButtonComponent} from "../../../shared/button/button.component";
 import {ControlComponent} from "../../../shared/control/control.component";
@@ -19,12 +19,20 @@ export class NewTicketsComponent {
 // @ViewChild('form') form ?: ElementRef<HTMLFormElement>;
 private form = viewChild.required<ElementRef<HTMLFormElement>>('form');
   @ViewChildren(ControlComponent) controls!: ElementRef<HTMLInputElement>[];
+
+  // @Output() add = new EventEmitter();
+  add = output<{title:string; text: string}>();
   onSubmit(title:string, request:string) {
     console.log('Submitted');
     console.log(title);
     console.log(request);
     this.form().nativeElement.reset();
     console.log(this.controls);
+    this.add.emit({
+      title:title,
+      text:request
+    });
+    this.form()?.nativeElement.reset();
   }
 
 }
