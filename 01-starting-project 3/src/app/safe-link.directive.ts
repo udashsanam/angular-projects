@@ -3,13 +3,14 @@ import {Directive, input} from "@angular/core";
 @Directive({
   selector: 'a[appSafeLink]',
   standalone:true,
+  // defining action for directive
   host:{
     '(click)':'onConfirmLeavePage($event)',
   },
 })
 export class SafeLinkDirective{
 
-   queryParam = input('myapp');
+   queryParam = input('myapp', {alias: 'appSafeLink'});
 
   constructor() {
     console.log('Safe link dierective is active!');
