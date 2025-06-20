@@ -20,6 +20,7 @@ export class AuthDirective {
         this.viewContainerRef.createEmbeddedView(this.templateRef);
       }else {
         console.log("do not show element")
+        this.viewContainerRef.clear();
       }
     });
   }
