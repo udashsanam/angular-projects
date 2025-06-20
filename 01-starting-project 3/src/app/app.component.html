@@ -10,5 +10,8 @@
 <!--  struturale directive  -->
 <!--  <p *ngIf="isAdmin()"> only admin shoud see this </p>-->
 
-  <p appAuth="admin"  > only admin should see this</p>
+<!--  <p appAuth="admin"  > only admin should see this</p>-->
+  <ng-template appAuth="admin">
+    <p>Only admins shoul see this !</p>
+  </ng-template>
 </main>
