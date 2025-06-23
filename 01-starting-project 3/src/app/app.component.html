@@ -1,0 +1,23 @@
+<main>
+  <app-learning-resources appLog />
+
+  <hr />
+
+  <app-auth  />
+<!--  @if (isAdmin()){-->
+<!--    <p>only admin should see this !</p>-->
+<!--  }-->
+<!--  struturale directive  -->
+<!--  <p *ngIf="isAdmin()"> only admin shoud see this </p>-->
+
+<!--  <p appAuth="admin"  > only admin should see this</p>-->
+<!--  <ng-template appAuth="admin">-->
+<!--    <p>Only admins shoul see this !</p>-->
+<!--  </ng-template>-->
+    <p *appAuth="'admin'"  class="protected-content admin"> only admin should see this</p>
+  <p *appAuth="'user'"  class="protected-content unauthenticated"> Regular user should see this!</p>
+  <p *appAuth="'guest'"  class="protected-content authenticated"> Guest user should see this !</p>
+
+
+
+</main>
