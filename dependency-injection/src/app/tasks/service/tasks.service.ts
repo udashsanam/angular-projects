@@ -1,11 +1,12 @@
 import {Injectable, signal} from "@angular/core";
-import {Task} from "../task.model";
+import {Task, TaskStatus} from "../task.model";
 
 @Injectable({
 providedIn:'root'
 })
 export class TasksService {
-  tasks = signal<Task[]>([]);
+  private tasks = signal<Task[]>([]);
+  allTasks = this.tasks.asReadonly();
 
   onAddTAsk(taskData: {title: string, description:string}) {
 
@@ -17,4 +18,7 @@ export class TasksService {
     };
     this.tasks.update((oldTasks) => [...oldTasks, newTask]);
   }
+  updateTasksStatus(taskId:string, newStatuaT: TaskStatus){
+  }
+
 }
